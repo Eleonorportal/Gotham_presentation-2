@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gotham Site 2 - Design Presentation</title>
+    <link rel="icon" href="icon_2.png" type="image/png">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #000000; 
+            color: #e0e0e0; 
+        }
+        .page-container {
+            max-width: 900px;
+            margin: 40px auto; 
+            padding: 20px;
+        }
+
+        /* --- Top Navigation --- */
+        #top-nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(15, 15, 15, 0.95); /* Dark semi-transparent background */
+            z-index: 1000;
+            padding: 10px 0;
+            text-align: center;
+            backdrop-filter: blur(5px); /* Frosted glass effect */
+            border-bottom: 1px solid #2c2c2c;
+        }
+        #top-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            justify-content: center;
+        }
+        #top-nav li {
+            margin: 5px 10px;
+        }
+        #top-nav a.nav-link {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 0.85em;
+            padding: 5px 8px;
+            border-radius: 3px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        #top-nav a.nav-link:hover,
+        #top-nav a.nav-link:focus {
+            color: #ffffff;
+            background-color: #e50914; /* Accent color on hover */
+        }
+
+        .document-main-title-block {
+            text-align: center;
+            margin-top: 20px; /* Adjusted margin to accommodate nav bar */
+            margin-bottom: 40px;
+        }
+        img.header-logos { 
+            max-width: 100px; 
+            height: auto;
+            margin-bottom: 15px;
+        }
+        .document-main-title-block h1 {
+            color: #f5f5f5; 
+            font-size: 2em;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .document-main-title-block .subtitle {
+            color: #aaaaaa;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+        .intro-description { 
+            margin-bottom: 40px;
+        }
+        .intro-description h3 {
+            color: #dddddd;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+        .intro-description p { 
+            color: #cccccc;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .section {
+            margin-bottom: 50px;
+            padding-top: 20px; /* Increased padding for visual separation with sticky nav */
+            border-top: 2px solid #222222; /* Slightly more pronounced border */
+        }
+        .section:first-of-type { /* For the hero section */
+             border-top: none;
+             padding-top: 0; /* No extra padding for the very first section after intro */
+        }
+        .intro-description + .section { /* If the first section is directly after intro, no top border */
+            border-top: none;
+            padding-top: 0;
+        }
+        .section-title {
+            color: #e50914; 
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 1.6em;
+            font-weight: 500;
+        }
+        .subsection-title { 
+            color: #dddddd;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            font-weight: 500;
+        }
+        img.section-image { 
+            width: 100%; 
+            max-width: 100%; 
+            height: auto;    
+            display: block;  
+            margin-bottom: 30px;
+            border: 1px solid #2c2c2c; 
+            border-radius: 4px; 
+        }
+        img.standalone-image { 
+            width: 100%;
+            max-width: 300px; 
+            height: auto;
+            display: block;
+            margin: 30px auto; 
+            border: none; 
+        }
+        p, li {
+            color: #dcdcdc; 
+            text-align: justify;
+        }
+        ul, ol { 
+            padding-left: 25px; 
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        ul li { 
+             list-style-type: disc; 
+        }
+        .production-support-list li,
+        .rental-package-card-list li { 
+            list-style-type: disc; 
+            margin-left: 20px; 
+        }
+        .company-introduction-list li, 
+        .application-spheres-list li { 
+            list-style-type: "- ";
+            padding-left: 5px; 
+        }
+        .footer-list li { 
+             list-style-type: disc;
+        }
+        .note {
+            font-style: italic;
+            color: #b0b0b0;
+            margin-top: 30px;
+            border-left: 3px solid #555555;
+            padding: 15px;
+            background-color: #0f0f0f; 
+            border-radius: 3px;
+        }
+        .note p {
+            margin-bottom: 10px;
+        }
+        .note p:last-child {
+            margin-bottom: 0;
+        }
+        .numbered-subsection-title { 
+            font-size: 1.1em; 
+            color: #c0c0c0; 
+            margin-top:20px;
+            font-weight: 500;
+        }
+        a {
+            color: #e50914; 
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Back to Top Button --- */
+        #backToTopBtn {
+            display: none; 
+            position: fixed; 
+            bottom: 20px; 
+            right: 30px; 
+            z-index: 999; 
+            border: none; 
+            outline: none; 
+            background-color: #e50914; 
+            color: white; 
+            cursor: pointer; 
+            padding: 10px 15px; 
+            border-radius: 50%; /* Circular shape */
+            font-size: 18px; 
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+            transition: background-color 0.3s;
+        }
+        #backToTopBtn:hover {
+            background-color: #c0040f; /* Darker red on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="top-nav">
+        <ul>
+            <li><a href="#s2-sec01-hero-header" class="nav-link">01 HERO & HEADER</a></li>
+            <li><a href="#s2-sec02-rental-process" class="nav-link">02 RENTAL PROCESS</a></li>
+            <li><a href="#s2-sec03-brands" class="nav-link">03 BRANDS</a></li>
+            <li><a href="#s2-sec04-production-support" class="nav-link">04 PRODUCTION SUPPORT</a></li>
+            <li><a href="#s2-sec05-company-introduction" class="nav-link">05 COMPANY INTRODUCTION</a></li>
+            <li><a href="#s2-sec06-industries" class="nav-link">06 INDUSTRIES</a></li>
+            <li><a href="#s2-sec07-statement-quality" class="nav-link">07 STATEMENT OF QUALITY</a></li>
+            <li><a href="#s2-sec08-marquee-stats" class="nav-link">08 MARQUEE & STATS</a></li>
+            <li><a href="#s2-sec09-rental-packages" class="nav-link">09 RENTAL PACKAGES</a></li>
+            <li><a href="#s2-sec10-blog" class="nav-link">10 BLOG</a></li>
+            <li><a href="#s2-sec11-crew-hire" class="nav-link">11 CREW HIRE</a></li>
+            <li><a href="#s2-sec12-faq" class="nav-link">12 FAQ</a></li>
+            <li><a href="#s2-sec13-footer" class="nav-link">13 FOOTER</a></li>
+            <li><a href="#s2-sec14-shopping-cart" class="nav-link">14 SHOPPING CART</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-container">
+
+        <div class="document-main-title-block">
+            <img src="logos.png" alt="Logos" class="header-logos">
+            <h1>GOTHAM SITE 2</h1>
+            <p class="subtitle">option 2: gothamcine1.framer.website</p>
+        </div>
+
+        <div class="intro-description">
+            <h3>Main Differences and Characteristics of This Variant:</h3>
+            <p><strong>Color Palette:</strong> Although the basis is still a strict dark theme, we have taken a step towards using color. Red, as a key element of the corporate style, remains, but in terms of content filling (images, video), we have included more color for demonstration purposes.</p>
+            <p><strong>Expanded Structure and Content:</strong> The start page in this version contains more sections. This allows not only to present the main assortment and services but also to add sections aimed at improving user experience (several new sections on rental topics) and demonstrating expertise (review of ready-made kits for specific types of filming). Part of these sections is designed to actively motivate the client to study the catalog and interact with the site.</p>
+            <p><strong>Enhanced Dynamics and Interactivity:</strong> This variant implies a larger number of interactive elements and animations (for example, new scroll-slideshows, animated icons, or effects when hovering over cards). This makes the site more "alive" and engaging, both in the first and second design variants of the site.</p>
+            <p><strong>Style and Feel:</strong> The overall design can be characterized as more dynamic, using "bold" and massive fonts for headings. At the same time, interface elements, such as buttons and cards, often have rounded forms, which adds some softness and friendliness to the design and corresponds to current trends in UI.</p>
+        </div>
+
+        <div class="section" id="s2-sec01-hero-header"> 
+            <h2 class="section-title">01 HERO & HEADER</h2>
+            <img src="1.png" alt="Hero & Header Visual for Gotham Site 2" class="section-image">
+            <p>The first screen (Hero section) of this design variant aims to instantly declare the GOTHAM CINE brand, its character, and main proposition, using bold visual solutions.</p>
+            <h3 class="subsection-title">Dominant Branding:</h3>
+            <p>The name "GOTHAM CINE," executed in a large, massive font, occupies a central place on the screen. Typography and a large inscription convey a sense of confidence, brutality, and a modern approach. And this generally does not interfere with the premium appearance.</p>
+            <h3 class="subsection-title">Minimalist Navigation:</h3>
+            <p>In the upper part of the screen, only the most necessary elements are located: a compact "G" logo on the left, a hamburger icon to call the main menu (menu is not active yet), and a search icon on the right (the "SEARCH EQ" button, which also has an animation effect of coloring, which will be encountered further in the page design). This solution allows not to distract attention from the main message and preserves the purity of the composition.</p>
+            <h3 class="subsection-title">Information Accents:</h3>
+            <p>Below the main heading, three small text blocks with icons are placed, which concisely convey information or advantages:</p>
+            <ul>
+                <li>BASED IN BROOKLYN, NEW YORK.</li>
+                <li>AVAILABLE ACROSS THE USA / DELIVERY (we will discuss delivery later).</li>
+                <li>PREMIUM QUALITY GEAR (emphasizes the main focus on equipment quality).</li>
+            </ul>
+            <p>These elements can be replaced with something else. In the first variant, there is also an indicator of location in the hero section; we still don't know how important this moment is for you, but all this can be changed to more relevant information that will enhance the user's initial perception. In extreme cases, these text blocks can be removed altogether.</p>
+            <h3 class="subsection-title">Image/Video:</h3>
+            <p>The space behind the large GOTHAM CINE inscription can also be used for a background image or video. But in this variant, we decided not to insert anything on the background for now, to let you see how a large accent inscription can cope with a bright greeting without additional interactive elements and content. The video is placed a little lower. There can be anything, but for now, we put a trailer for the ALEXA camera there, which has an interesting video sequence. Such a video sequence with frames from Hollywood films can also play on the user's perception when getting acquainted with the site, but we haven't figured out yet whether something like this can be inserted or if certain rights are needed for this. The quality of this demonstration video is currently low so as not to overload the site.</p>
+            <h3 class="subsection-title">Site Menu:</h3>
+            <p>The site menu will have a similar structure and animation - it is a drop-down menu with the rest of the site dimming. The sections we have there are the same as in the first variant. It already exists, it's just not fully adapted and finalized yet.</p>
+            <p>For more details about the menu in general, see the reference for the first design variant: <a href="https://eleonorportal.github.io/Gotham_presentation-1/#section-02" target="_blank">https://eleonorportal.github.io/Gotham_presentation-1/#section-02</a></p>
+        </div>
+
+        <div class="section" id="s2-sec02-rental-process"> 
+            <h2 class="section-title">02 RENTAL PROCESS</h2>
+            <img src="2.png" alt="Rental Process Visual" class="section-image">
+            <p>To make the rental process as transparent and understandable as possible for the user, we included a special section that demonstrates the main stages of interaction with the GOTHAM CINE service.</p>
+            <h3 class="subsection-title">Clear Headline and Sub-headline:</h3>
+            <p>The large headline "RENTING MADE EASY. SIMPLE STEPS TO YOUR GEAR" immediately communicates the section's goal – to simplify the understanding of the process. The sub-headline (e.g., "A clear path to securing the professional equipment you need for your production.") further emphasizes ease and clarity. Small text elements in the corners of the section (e.g., 01, //APPROACH, THREE PHASES) are stylistic elements that can either be adapted for numbering and section titles or removed for greater cleanliness if they do not carry a semantic load for GOTHAM CINE.</p>
+            <h3 class="subsection-title">Visualization of Stages:</h3>
+            <p>The process is broken down into three key stages (BROWSE & SEARCH, PICK DATES (or SELECT & CHECK DATES), REQUEST BOOKING), each represented by a separate block. This simplifies the perception of information compared to continuous text.</p>
+            <h3 class="subsection-title">Iconography:</h3>
+            <p>Each stage is accompanied by a set of three icons that visually reinforce the meaning of the step. Using simple, recognizable icons (e.g., camera/magnifying glass for search, calendar/checkmark/cart for selecting dates, envelope/airplane/handshake for a request) improves understanding and makes the block more attractive. The current icons are examples and can be replaced with more custom ones that match the corporate style. We also have ideas on how to further modernize this section, what other files can replace the images, but it still requires testing.</p>
+            <h3 class="subsection-title">Brevity of Descriptions:</h3>
+            <p>Under each stage headline, there is a very short description explaining the user's action. This helps to avoid text overload and maintain focus on key actions.</p>
+            <h3 class="subsection-title">Progression and Logic:</h3>
+            <p>In the upper part of the section, there is also a visual element in the form of three numbered dots (01, 02, 03), connected by lines, which symbolizes sequence and progress through the stages. This is an intuitive way to show movement from one step to another.</p>
+            <h3 class="subsection-title">User Confidence:</h3>
+            <p>Demonstrating a simple and clear rental process reduces potential barriers and concerns for new clients, showing that interaction with the service will not be complicated. This section plays an important role in educating the user and building their confidence in the simplicity and convenience of using the GOTHAM CINE service, which ultimately contributes to an increase in conversion to rental inquiries.</p>
+            <p style="margin-top: 20px;">This example section also shows how we plan to implement rentals. Calendars and forms will be connected to the catalog, but we will, of course, coordinate all this with you further.</p>
+            <p>The section can also be located lower if necessary.</p>
+        </div>
+
+        <div class="section" id="s2-sec03-brands"> 
+            <h2 class="section-title">03 BRANDS</h2>
+            <img src="2-1.png" alt="Brands Section Visual" class="section-image">
+            <p>We have already discussed in detail the demonstration of brands in the reference for the first site variant; please familiarize yourself with it if you haven't done so already: <a href="https://eleonorportal.github.io/Gotham_presentation-1/#section-05" target="_blank">https://eleonorportal.github.io/Gotham_presentation-1/#section-05</a></p>
+            <p>The only difference in the case of this site variant is that now the cards with brands are not in a static/motionless state but have an animation of a running line.</p>
+        </div>
+        
+        <div class="section" id="s2-sec04-production-support"> 
+            <h2 class="section-title">04 PRODUCTION SUPPORT</h2>
+            <img src="3.png" alt="Full Production Support Visual" class="section-image">
+            <p>This "FULL PRODUCTION SUPPORT" section also illustrates the range of GOTHAM CINE's capabilities that go beyond simple equipment rental and is designed to convey to the client the idea of comprehensive support at all stages of production.</p>
+            <p><strong>Note:</strong> In the first site variant, there was also a section with a similar structure and 5 cards at the beginning, but it reviewed the main subdivisions within the EQUIPMENT section (<a href="https://eleonorportal.github.io/Gotham_presentation-1/#section-06" target="_blank">https://eleonorportal.github.io/Gotham_presentation-1/#section-06</a>), this time we made a general section regarding the entire spectrum of services, which is more similar to the COMPLETE YOUR PRODUCTION section from the first variant (<a href="https://eleonorportal.github.io/Gotham_presentation-1/#section-08" target="_blank">https://eleonorportal.github.io/Gotham_presentation-1/#section-08</a>). We also leave the assessment of the appropriateness of such an introductory section at the very beginning (with an overview of the entire range of services) to you.</p>
+            <h3 class="subsection-title">Central Headline and Description:</h3>
+            <p>The large, accented headline "FULL PRODUCTION SUPPORT" immediately attracts attention and clearly states the section's theme. The accompanying text on the top right (e.g., "In addition to providing equipment, GOTHAM CINE offers comprehensive support services...") briefly expands on this concept, preparing the user for an acquaintance with specific services.</p>
+            <h3 class="subsection-title">Visual Presentation of Services in Carousel/Slider Format:</h3>
+            <p>Five (can be more or less) cards representing various aspects of support are organized in a carousel or slider. This allows for a compact presentation of a significant amount of information without overloading the page with vertical scrolling (in the case of a desktop version of the site).</p>
+            <p>Each card includes:</p>
+            <ul class="production-support-list">
+                <li><strong>Thematic Image:</strong> Visually represents the service or direction. As in other sections, the current images are demonstrational and will be replaced with final, stylistically consistent ones.</li>
+                <li><strong>Service/Category Name:</strong> For example, EQUIPMENT RENTALS, EXPENDABLES, CREW HIRE, PRODUCTION VANS, INDUSTRY INSIGHTS (BLOG).</li>
+                <li><strong>Brief Sub-headline/Description:</strong> Clarifies the essence of the offer (e.g., TOP BRANDS AVAILABLE for rentals, ALL ON-SET ESSENTIALS for consumables).</li>
+                <li><strong>Arrow Icon:</strong> Hints at the possibility of transitioning to more detailed information or the corresponding section of the site.</li>
+            </ul>
+            <h3 class="subsection-title">Dynamics and Engagement:</h3>
+            <p>The use of a slider or carousel adds interactivity and dynamism to the page, encouraging the user to interact with the content and view all available options.</p>
+            <h3 class="subsection-title">Versatility and Scalability:</h3>
+            <p>The structure allows for easy addition of new cards as the range of services or equipment categories expands, without disrupting the overall composition. However, it's not advisable to overload this section with too many cards, as this would harm minimalism and the volume of the start page.</p>
+            <p style="margin-top: 20px;">Overall, this section is designed to present GOTHAM CINE as comprehensively and compactly as possible as a universal partner and, right at the beginning of the site, provide the client with a choice in reviewing and familiarizing themselves with various services.</p>
+        </div>
+        
+        <div class="section" id="s2-sec05-company-introduction"> 
+            <h2 class="section-title">05 COMPANY INTRODUCTION</h2>
+            <img src="4.png" alt="About Gotham Cine Visual" class="section-image">
+            <p>The "ABOUT GOTHAM CINE" section is designed not just as an informational block, but as a memorable visual experience that uses animation techniques to retain user attention.</p>
+            <h3 class="subsection-title">Image Animation on Scroll:</h3>
+            <p>When scrolling the page down, the "ABOUT GOTHAM CINE" headline first appears and fixes in the central part of the screen. The main visual accent is on the animation of the image located below the headline. As the page is scrolled further:</p>
+            <ul class="company-introduction-list">
+                <li><strong>Overlay Effect:</strong> The image begins to smoothly rise from the bottom up, gradually covering the fixed "ABOUT GOTHAM CINE" headline. This creates a sense of depth and layering in the design.</li>
+                <li><strong>Scaling Animation (Zoom Out):</strong> Simultaneously with the rise, the image smoothly scales down (the "zoom out" effect) within its container. This allows focusing attention on a detail first (e.g., a large "G" logo), and then showing the entire image, adding an element of reveal.</li>
+                <li><strong>Light Parallax Effect:</strong> There is also a subtle parallax effect, where the image's movement speed slightly differs from the scroll speed, adding additional depth and dynamism to the scene.</li>
+                <li><strong>Synchronization with Text:</strong> Together with the image, the main text block describing the company is pulled up from below. This creates a unified, synchronized movement of all section elements. The textual and visual (image) content here, as in other sections, is demonstrational and will be finalized.</li>
+            </ul>
+            <h3 class="subsection-title">Visual Engagement and "Wow Effect":</h3>
+            <p>The combination of these animation techniques (sticky headline, overlay, zooming, parallax) is intended not only to attract attention but also to create a memorable "wow effect," demonstrating GOTHAM CINE's modern and technological approach to its online presence. This distinguishes the site from static counterparts and makes interaction with it more engaging.</p>
+            <p style="margin-top: 20px;">Overall, we primarily wanted to demonstrate a similar effect to you, which can be applied to another section, not necessarily to the "About" section. But here it currently looks appropriate.</p>
+        </div>
+        
+        <div class="section" id="s2-sec06-industries"> 
+            <h2 class="section-title">06 INDUSTRIES WE CAN SUPPORT</h2>
+            <img src="5.png" alt="Industries We Can Support Visual" class="section-image">
+            <p>To demonstrate the versatility of the offered equipment and services, and to help various segments of the target audience see GOTHAM CINE as their potential partner, we have developed the "INDUSTRIES WE CAN SUPPORT" section.</p>
+            <h3 class="subsection-title">Focus on Client Solutions:</h3>
+            <p>Instead of simply listing technical specifications, this section shows for which types of projects and in which industries GOTHAM CINE's equipment and support can be most in demand. This helps clients correlate the company's offer with their specific tasks.</p>
+            <h3 class="subsection-title">"Accordion" Structure:</h3>
+            <p>The use of an interactive "accordion" element (where more detailed information is revealed by clicking on the heading) allows for a compact presentation of a significant amount of information without overloading the page. The user can quickly scan the main directions (Feature Films & Episodic TV, Commercials & Music Videos, Corporate & Live Events, etc.) and delve only into those that are of interest to them.</p>
+            <h3 class="subsection-title">Detailing on Expansion:</h3>
+            <p>Each accordion item, when expanded, contains:</p>
+            <ul class="application-spheres-list">
+                <li><strong>Thematic Image:</strong> Visually illustrates the type of project.</li>
+                <li><strong>List of Key Advantages or Equipment Types:</strong> Lists specific solutions GOTHAM CINE offers for this industry (e.g., "Access to large-format cameras", "High-speed cameras for stunning slow-motion"). The use of checkmark icons improves readability.</li>
+            </ul>
+            <h3 class="subsection-title">Visual Hierarchy and Style:</h3>
+            <p>The large section headline and clear division of accordion points ensure good visual hierarchy. The design style (dark background, accent colors, typography) corresponds to the overall site design. The accompanying text on the top right briefly explains the purpose of the section.</p>
+            <h3 class="subsection-title">Demonstrational Nature and Flexibility:</h3>
+            <p>It is important to emphasize that the directions and details presented here are examples and do not exhaust all of GOTHAM CINE's capabilities. The list of industries can be expanded or adapted in the future. Current images and text formulations are also demonstrational and will be finalized to accurately reflect the specifics of GOTHAM CINE's services for each segment.</p>
+            <p style="margin-top: 20px;">This section demonstrates the breadth of application of GOTHAM CINE equipment and the company's ability to provide individual solutions for various production needs, which can strengthen its position in the user's perception of the site.</p>
+            <p style="margin-top: 30px;">Also, below this section, a placeholder for video is placed. For a minimalist style, we created a simple 3D animation with the Gotham Cine logo; in the future, it can be slightly improved or any other video can be inserted.</p>
+            <img src="5-1.png" alt="Gotham Cine 3D Logo Animation Placeholder" class="standalone-image">
+        </div>
+        
+        <div class="section" id="s2-sec07-statement-quality"> 
+            <h2 class="section-title">07 STATEMENT OF QUALITY</h2>
+            <img src="6.png" alt="Statement of Quality Visual" class="section-image">
+            <p>This section serves for a powerful visual and textual emphasis on the quality and level of the GOTHAM CINE equipment offered, particularly flagship cameras. In its impact and structure, it partially echoes the atmospheric slideshow we considered in the first design variant (<a href="https://eleonorportal.github.io/Gotham_presentation-1/#section-07" target="_blank">https://eleonorportal.github.io/Gotham_presentation-1/#section-07</a>), offering the user a visually rich but not informationally overloaded experience.</p>
+            <h3 class="subsection-title">Central Textual Statement:</h3>
+            <p>A large text highlighted in red (e.g., "THE BEST CAMERAS MAKE THE BEST IMAGES. RENT THE GEAR THAT DEFINES PROFESSIONAL CINEMATOGRAPHY TODAY. OUR ARSENAL FEATURES FLAGSHIP MODELS READY TO ELEVATE YOUR VISION.") acts as a bold statement. It directly speaks about the connection between equipment quality and the quality of the final product, positioning GOTHAM CINE as a supplier of precisely such instruments. The use of a massive font and accent color makes this statement a dominant element of the section. A small "G" logo above the text further enhances branding.</p>
+            <h3 class="subsection-title">Calm Carousel Dynamics:</h3>
+            <p>Below the text block is a horizontal carousel displaying images of several (in this case, six), presumably flagship camera models. Similar to the scroll-slideshow section in the first variant, this carousel offers a smooth change of visual images upon user interaction. The absence of captions under the images in the current variant focuses all attention on the visual representation of the equipment itself, without overloading the user with additional information at this stage. For such a solution, more suitable images with more appropriate angles can be selected.</p>
+            <h3 class="subsection-title">Potential for Interactivity and Navigation:</h3>
+            <p>In the future, each card with a camera image in the carousel can be made clickable and lead directly to the page of that model in the catalog. This will turn a purely visual element into a functional navigation tool.</p>
+            <h3 class="subsection-title">Flexibility of Purpose:</h3>
+            <p>Although this section is currently focused on cameras, its structure (textual statement + image carousel) is quite versatile and can be adapted in the future to demonstrate other categories of equipment or even used for a different purpose altogether.</p>
+        </div>
+
+        <div class="section" id="s2-sec08-marquee-stats"> 
+            <h2 class="section-title">08 IMAGE MARQUEE AND STATS</h2>
+            <img src="6-1.png" alt="Image Marquee and Stats Visual" class="section-image">
+            <p>Immediately before the block with key statistical indicators, a dynamic visual strip is placed. This element is a horizontally and continuously scrolling series of images with various items from the catalog. They can be supplemented with links to the corresponding products, or the visual series can be replaced with something else (for example, some atmospheric photos).</p>
+            <p style="margin-top: 20px;">We discussed statistics with numbers in detail in the first design variant; please follow the link if you haven't read it yet: <a href="https://eleonorportal.github.io/Gotham_presentation-1/#section-03" target="_blank">https://eleonorportal.github.io/Gotham_presentation-1/#section-03</a></p>
+        </div>
+        
+        <div class="section" id="s2-sec09-rental-packages"> 
+            <h2 class="section-title">09 RENTAL PACKAGES</h2> 
+            <img src="7.png" alt="Popular Rental Packages Visual" class="section-image">
+            <p>We propose for consideration the idea of ready-made packages with the necessary set of equipment for specific types of filming.</p>
+            <p>To simplify the choice of equipment for specific filming tasks and to demonstrate the flexibility of GOTHAM CINE's proposals, we have developed the "POPULAR RENTAL PACKAGES" section. This block is aimed at providing clients with ready-made, well-thought-out solutions and increasing client motivation when working with the site.</p>
+            <h3 class="subsection-title">Client Needs Orientation:</h3>
+            <p>Sometimes it may be useful for a client not to independently assemble a kit from individual catalog positions, but to immediately consider several pre-configured sets for specific types of filming. This is especially useful for those who are looking for a quick and proven solution or are not entirely confident in the specifics of the necessary equipment. These kits are, of course, demonstrational in nature, and in the future, the section can be expanded, and the number of positions can be increased. We are also thinking about how such a function might work (items can be automatically added to the cart, or links can lead to a blog post where similar kits are discussed in more detail with individual links for each piece of equipment), but for now, we suggest just considering this idea. It may be useful in the future.</p>
+            <h3 class="subsection-title">Kit Card Structure:</h3>
+            <p>Each kit card is clearly structured to provide all necessary information:</p>
+            <ul class="rental-package-card-list">
+                <li><strong>Image:</strong> Visually represents the type of filming or key equipment from the kit.</li>
+                <li><strong>Kit Name:</strong> Clearly identifies the purpose of the package.</li>
+                <li><strong>Brief Description:</strong> Gives a general idea of what tasks this kit is intended for.</li>
+                <li><strong>"What's Included" List:</strong> Details, but concisely lists the main components included in the kit (camera, lenses, light, sound, support, etc.). The use of checkmark icons improves readability.</li>
+            </ul>
+            <h3 class="subsection-title">Transparency and Informativeness:</h3>
+            <p>A clear list of what is included in each package helps the client understand the value of the offer and its compliance with their needs. At the moment, prices are not indicated on these cards on the main page, as the final cost depends on the rental period. However, it is assumed that a specific button (e.g., "View Details") will lead to a page where details can be clarified.</p>
+            <h3 class="subsection-title">Time Saving for the Client:</h3>
+            <p>By offering ready-made packages, we save the client's time in selecting equipment and help avoid situations where something important might be missed, especially if the client is not an experienced professional.</p>
+            <h3 class="subsection-title">Flexibility:</h3>
+            <p>Although "popular" packages are presented, this does not exclude the possibility of individual equipment configuration through the main catalog in the future.</p>
+            <p style="margin-top: 20px;">This section not only demonstrates the assortment and understanding of the needs of various types of filming but also actively helps the client in the selection process, making it simpler and more convenient, which ultimately increases satisfaction with the GOTHAM CINE service.</p>
+        </div>
+
+        <div class="section" id="s2-sec10-blog">
+            <h2 class="section-title">10 BLOG</h2>
+            <img src="8.png" alt="Blog Section Visual" class="section-image">
+            <p>We have already discussed this section similarly in the previous site design variant: <a href="https://eleonorportal.github.io/Gotham_presentation-1/#section-10" target="_blank">https://eleonorportal.github.io/Gotham_presentation-1/#section-10</a></p>
+            <p>There is only a slight visual difference here in terms of the card shapes and additional initial text for articles located within the page (this is what the blog section in the first site variant currently lacks). Otherwise, the blog articles block serves a similar function and design.</p>
+        </div>
+
+        <div class="section" id="s2-sec11-crew-hire">
+            <h2 class="section-title">11 CREW HIRE</h2>
+            <img src="8-1.png" alt="Crew Hire Section Visual" class="section-image">
+            <p>We have also already covered this section in the previous site design variant: <a href="https://eleonorportal.github.io/Gotham_presentation-1/#section-09" target="_blank">https://eleonorportal.github.io/Gotham_presentation-1/#section-09</a></p>
+            <p>Overall, the visual and functionality are the same, only now for the desktop version of the site, we have 2 moving lines with Gotham Cine employees, which allows covering more experts and presenting them for consideration on the main page.</p>
+        </div>
+
+        <div class="section" id="s2-sec12-faq">
+            <h2 class="section-title">12 FAQ</h2>
+            <img src="8-2.png" alt="FAQ Section Visual" class="section-image">
+            <p>The FAQ section is completely analogous to that in the first site variant (<a href="https://eleonorportal.github.io/Gotham_presentation-1/#section-11" target="_blank">https://eleonorportal.github.io/Gotham_presentation-1/#section-11</a>).</p>
+        </div>
+        
+        <div class="section" id="s2-sec13-footer">
+            <h2 class="section-title">13 FOOTER</h2>
+            <img src="9.png" alt="Footer Visual for Site 2" class="section-image">
+            <p>The concluding part of the start page combines a final call to action and standard footer elements, logically concluding the user's journey.</p>
+            <h3 class="subsection-title">Bright Call to Action ("LET'S WORK TOGETHER"):</h3>
+            <p>A large headline, executed in an accent red color, serves as an energetic and memorable call to cooperation or the beginning of interaction. It can motivate the user to take the next step.</p>
+            <h3 class="subsection-title">Equipment Search Button "SEARCH EQ" (can be replaced):</h3>
+            <p>Directly below the headline is a button that duplicates the search function from the header or leads to the catalog. Its placement here provides another convenient entry point for those who are ready to start searching for equipment after reviewing the page. A large logo reappears in the center of this section, enhancing brand recognition and serving as a visual anchor.</p>
+            <h3 class="subsection-title">Summary Description and Social Networks:</h3>
+            <p>Below the logo, any text block can be placed. This could be a slogan, or something like our variant (e.g., "BASED IN NYC, GOTHAM CINE IS MORE THAN A RENTAL HOUSE – WE'RE YOUR PARTNER IN PRODUCTION..."). Immediately below it are icon links to social networks (INSTAGRAM, FACEBOOK, YOUTUBE), providing the user with the opportunity to connect with the brand on other platforms.</p>
+            <h3 class="subsection-title">Footer (Basement):</h3>
+            <ul class="footer-list">
+                <li><strong>Company Name:</strong> A large inscription "GOTHAM CINE" once again reinforces the brand.</li>
+                <li><strong>Copyright:</strong> Indication of the year and rights holder (e.g., ©2025 KRISTIN DESIGN - this element, of course, will be replaced with the current copyright).</li>
+                <li><strong>"BACK TO TOP" Link:</strong> A convenient navigation element that allows you to quickly return to the beginning of a long page. (In a full-fledged footer, links to important pages such as "Contacts," "Rental Conditions," "Privacy Policy," etc., are also usually placed, which will be added during the development of the corresponding pages).</li>
+            </ul>
+        </div>
+
+        <div class="section" id="s2-sec14-shopping-cart">
+            <h2 class="section-title">14 SHOPPING CART</h2>
+            <img src="9-1.png" alt="Shopping Cart Visual Hint" class="section-image">
+            <p>You might have noticed that a shopping cart button has been accompanying you in the corner of the screen all this time (indicated by a red arrow in the image above). Perhaps on the main page, it won't be needed in the future, but this is something that is useful to have at hand. It can also be replaced with another function, for example, a message with a special offer.</p>
+        </div>
+        <!-- End of All Content Sections -->
+
+    </div>
+
+    <a href="#" id="backToTopBtn" title="Go to top">↑</a>
+
+    <script>
+        // Back to Top Button
+        let backToTopBtn = document.getElementById("backToTopBtn");
+        
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        }
+        // The href="#" with CSS scroll-behavior:smooth handles the click.
+    </script>
+
+</body>
+</html>
