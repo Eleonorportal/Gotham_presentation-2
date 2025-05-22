@@ -23,15 +23,14 @@
             padding: 20px;
         }
 
-        /* --- Top Navigation --- */
         #top-nav {
             position: sticky;
             top: 0;
-            background-color: rgba(15, 15, 15, 0.95); /* Dark semi-transparent background */
+            background-color: rgba(15, 15, 15, 0.95); 
             z-index: 1000;
             padding: 10px 0;
             text-align: center;
-            backdrop-filter: blur(5px); /* Frosted glass effect */
+            backdrop-filter: blur(5px); 
             border-bottom: 1px solid #2c2c2c;
         }
         #top-nav ul {
@@ -39,7 +38,7 @@
             padding: 0;
             margin: 0;
             display: flex;
-            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            flex-wrap: wrap; 
             justify-content: center;
         }
         #top-nav li {
@@ -56,12 +55,12 @@
         #top-nav a.nav-link:hover,
         #top-nav a.nav-link:focus {
             color: #ffffff;
-            background-color: #e50914; /* Accent color on hover */
+            background-color: #e50914; 
         }
 
         .document-main-title-block {
             text-align: center;
-            margin-top: 20px; /* Adjusted margin to accommodate nav bar */
+            margin-top: 20px; 
             margin-bottom: 40px;
         }
         img.header-logos { 
@@ -99,14 +98,15 @@
         }
         .section {
             margin-bottom: 50px;
-            padding-top: 20px; /* Increased padding for visual separation with sticky nav */
-            border-top: 2px solid #222222; /* Slightly more pronounced border */
+            padding-top: 20px; 
+            border-top: 2px solid #222222; 
+            scroll-margin-top: 70px; /* Offset for sticky navigation - adjust if nav height changes */
         }
-        .section:first-of-type { /* For the hero section */
+        .section:first-of-type { 
              border-top: none;
-             padding-top: 0; /* No extra padding for the very first section after intro */
+             padding-top: 0; 
         }
-        .intro-description + .section { /* If the first section is directly after intro, no top border */
+        .intro-description + .section { 
             border-top: none;
             padding-top: 0;
         }
@@ -197,7 +197,6 @@
             text-decoration: underline;
         }
 
-        /* --- Back to Top Button --- */
         #backToTopBtn {
             display: none; 
             position: fixed; 
@@ -210,13 +209,13 @@
             color: white; 
             cursor: pointer; 
             padding: 10px 15px; 
-            border-radius: 50%; /* Circular shape */
+            border-radius: 50%; 
             font-size: 18px; 
             box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
             transition: background-color 0.3s;
         }
         #backToTopBtn:hover {
-            background-color: #c0040f; /* Darker red on hover */
+            background-color: #c0040f; 
         }
     </style>
 </head>
